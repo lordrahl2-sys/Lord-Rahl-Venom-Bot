@@ -1,0 +1,13 @@
+{
+  "name": "venom-bot",
+  "version": "1.0.0",
+  "description": "WhatsApp bot powered by Venom",
+  "main": "index.js",
+  "scripts": {
+    "start": "node index.js"
+  },
+  "dependencies": {
+    "venom-bot": "^5.0.0",
+    "dotenv": "^16.0.0"
+  }
+}
