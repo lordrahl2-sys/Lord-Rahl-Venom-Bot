@@ -1,0 +1,23 @@
+// plugins/sticker.js
+
+module.exports = async function stickerCommand(client, message) {
+  const prefix = '.';
+  const command = message.body?.toLowerCase();
+
+  if (command === `${prefix}sticker` || command === `${prefix}s`) {
+    if (message.isMedia || message.isMMS) {
+      const buffer = await client.decryptFile(message);
+      await client.sendImageAsSticker(message.from, buffer, {
+        author: "👑 Lord Rahl",
+        pack: "Royal Sticker Pack",
+      });
+
+      await client.sendText(message.from, "✨ Sticker has been royally crafted for you.");
+    } else {
+      await client.sendText(
+        message.from,
+        `📸 *Royal Instruction:*\nPlease send an image or video with the caption *.sticker* or *.s* to create your royal sticker.`
+      );
+    }
+  }
+};
