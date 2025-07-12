@@ -1,74 +1,66 @@
+// 👑 Lord Rahl Bot - index.js  
 const venom = require('venom-bot');
-const fs = require('fs');
-const path = require('path');
 
-// Import plugins
+// Royal Plugins  
 const startupPlugin = require('./plugins/startup');
 const welcomePlugin = require('./plugins/welcome');
-const aiPlugin = require('./plugins/ai');
-const antideletePlugin = require('./plugins/antidelete');
-const menuPlugin = require('./plugins/menu');
+const goodbyePlugin = require('./plugins/goodbye');
+const antiDeletePlugin = require('./plugins/antidelete');
+const groupPlugin = require('./plugins/group');
 const alivePlugin = require('./plugins/alive');
+const menuPlugin = require('./plugins/menu');
 const pingPlugin = require('./plugins/ping');
 
-// Initialize Venom
 venom
   .create({
-    session: 'lord-rahl-session', // folder where session will be stored
+    session: 'lord-rahl-session',
     multidevice: true,
     headless: true,
     useChrome: false,
     disableWelcome: true,
   })
   .then(async (client) => {
-    console.log("✅ Venom client created successfully.");
+    console.log("👑 Rahl: Throne established. Bot is alive.");
 
-    // Run startup message plugin
+    // 🌟 Startup Blessing
     await startupPlugin(client);
 
-    // Welcome new users (optional)
-    client.onGlobalParticipantsChanged((event) => {
-      welcomePlugin(client, event);
-    });
-
-    // Anti-delete functionality
-    client.onMessageDeleted((message) => {
-      antideletePlugin(client, message);
-    });
-
-    // Command handler
+    // 🎯 Command Center
     client.onMessage(async (message) => {
       try {
         if (!message.body || !message.from) return;
 
-        const prefix = '.'; // Can be dynamically set or configured
+        const prefix = '.';
         const args = message.body.trim().split(/ +/);
         const command = args[0].toLowerCase();
+        const text = args.slice(1).join(' ');
 
-        // Sample command handlers
-        if (command === `${prefix}ping`) {
-          await pingPlugin(client, message);
-        }
+        // ⚡ Royal Commands
+        if (command === `${prefix}ping`) return pingPlugin(client, message);
+        if (command === `${prefix}alive`) return alivePlugin(client, message);
+        if (command === `${prefix}menu`) return menuPlugin(client, message);
 
-        if (command === `${prefix}menu`) {
-          await menuPlugin(client, message);
-        }
+        // 🛡 Group Fortress
+        if (message.isGroupMsg) await groupPlugin(client, message);
 
-        if (command === `${prefix}alive`) {
-          await alivePlugin(client, message);
-        }
+        // 📜 Goodbye Setup
+        if (command === `${prefix}setgoodbye`)
+          return goodbyePlugin.handleGoodbyeCommand(client, message);
 
-        if (command === `${prefix}ai`) {
-          const query = args.slice(1).join(' ');
-          await aiPlugin(client, message, query);
-        }
-
-        // Add more commands here, like group management, etc.
       } catch (err) {
-        console.error("❌ Error handling message:", err);
+        console.error("⚠️ Rahl Error:", err);
       }
+    });
+
+    // 🕵️‍♂️ Anti-Delete Watcher
+    client.onDeletedMessage((msg) => antiDeletePlugin(client, msg));
+
+    // 🎉 Entrance & Exit
+    client.onGlobalParticipantsChanged(async (event) => {
+      await welcomePlugin(client, event);
+      await goodbyePlugin.sendGoodbyeIfSet(client, event);
     });
   })
   .catch((err) => {
-    console.error("❌ Venom failed to initialize:", err);
+    console.error("❌ Royal Failure:", err);
   });
