@@ -29,7 +29,4 @@ function start(client) {
       await client.sendText(message.from, `🏓 Pong from ${APP_NAME}`);
     }
     if (message.body === '!owner') {
-      await client.sendText(message.from, `👑 Owner: ${OWNER_NUMBER}`);
-    }
-  });
-}
+      
