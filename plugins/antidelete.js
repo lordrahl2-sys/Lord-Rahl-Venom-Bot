@@ -1,20 +1,27 @@
 // plugins/antidelete.js
 
 module.exports = async function antideletePlugin(client, message) {
-  const chatId = message.chatId;
-  const sender = message.author || message.sender?.id || "unknown";
-  const username = sender.replace('@c.us', '');
+  try {
+    const chatId = message.chatId;
+    const sender = message.author || message.sender?.id || "unknown";
+    const username = sender.replace('@c.us', '');
+    const deletedContent = message.body || '📦 *[Media or Non-text content]*';
 
-  const deletedContent = message.body || '[media or deleted content]';
+    const royalReveal = `
+╭━━〔 👑 *Anti-Delete Triggered* 〕━━
+┃
+┃ 🧍 *User*: @${username}
+┃ ⏰ *Time*: ${new Date().toLocaleTimeString()}
+┃ 🗑️ *Message Deleted*
+┃
+┃ ✦ *Revealed by* 𝙇𝙤𝙧𝙙 𝙍𝙖𝙝𝙡 ✦
+┃ ${deletedContent}
+┃
+╰━━━━━━━━━━━━━━━━━━━━━━━╯
+`;
 
-  const msgInfo = `
-🚨 *Anti-Delete Alert*
-👤 @${username}
-🕒 ${new Date().toLocaleTimeString()}
-
-👑 *Revealed by Rahl:*
-${deletedContent}
-  `;
-
-  client.sendText(chatId, msgInfo);
+    await client.sendText(chatId, royalReveal);
+  } catch (err) {
+    console.error("❌ Error in antideletePlugin:", err);
+  }
 };
