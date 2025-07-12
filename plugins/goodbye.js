@@ -4,7 +4,7 @@ const path = require('path');
 
 const goodbyePath = path.join(__dirname, '..', 'data', 'goodbye.json');
 
-// Ensure file exists
+// Ensure the goodbye message file exists
 if (!fs.existsSync(goodbyePath)) {
   fs.writeFileSync(goodbyePath, JSON.stringify({}));
 }
@@ -24,12 +24,19 @@ module.exports = {
     if (command === `${prefix}setgoodbye`) {
       const customMessage = args.slice(1).join(' ');
       if (!customMessage) {
-        return client.sendText(message.chatId, '❌ Please provide a goodbye message.');
+        return client.sendText(
+          message.chatId,
+          '🚫 *Royal Alert:* Please provide a goodbye message, noble one.'
+        );
       }
 
       goodbyeMessages[message.chatId] = customMessage;
       saveGoodbyeMessages();
-      return client.sendText(message.chatId, '✅ Goodbye message has been set!');
+
+      return client.sendText(
+        message.chatId,
+        '✅ *Royal Scroll:* Goodbye message has been engraved in the kingdom’s memory.'
+      );
     }
   },
 
@@ -41,8 +48,21 @@ module.exports = {
       goodbyeMessages[chatId] &&
       event.who !== event.by
     ) {
-      const msg = goodbyeMessages[chatId].replace(/@user/gi, `@${event.who.replace('@c.us', '')}`);
-      await client.sendTextWithMentions(chatId, msg);
+      const farewellUser = `@${event.who.replace('@c.us', '')}`;
+      const farewellMsg = goodbyeMessages[chatId]
+        .replace(/@user/gi, farewellUser);
+
+      const royalFarewell = `
+╭━━━〔 👋 *Farewell Ceremony* 〕━━━
+┃ ✦ Noble: ${farewellUser}
+┃ ✦ Departed the Kingdom
+┃
+┃ 📝 *Final Words:*
+┃ ${farewellMsg}
+╰━━━━━━━━━━━━━━━━━━━━━━━━━━╯
+      `;
+
+      await client.sendTextWithMentions(chatId, royalFarewell);
     }
   },
 };
