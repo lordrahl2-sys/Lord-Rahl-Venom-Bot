@@ -41,7 +41,7 @@ Example with Render:
 ## 🖼️ Preview
 
 <p align="center">
-  <img src="https://i.imgur.com/S1E1sTG.png" width="450px" alt="Lord Rahl Session Panel" />
+  <img src="https://i.imgur.com/zJ0lXDT.png" width="450px" alt="Rahl Session Panel Preview" />
 </p>
 
 ---
