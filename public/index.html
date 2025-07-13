@@ -3,25 +3,98 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>👑 Lord Rahl | Royal Session</title>
-  <link rel="stylesheet" href="style.css" />
+  <title>👑 Lord Rahl Session Panel</title>
+  <link rel="icon" href="/assets/rahl-lion-logo.png" />
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Segoe UI', sans-serif;
+      background: linear-gradient(to bottom, #0b0613, #1a0f2b);
+      color: #f8eaff;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      padding: 30px;
+    }
+
+    h1 {
+      font-size: 2.5rem;
+      color: #d2b2ff;
+      text-align: center;
+      text-shadow: 0 0 10px #8a2be2;
+    }
+
+    img {
+      width: 280px;
+      border-radius: 10px;
+      margin: 20px 0;
+      box-shadow: 0 0 30px #8a2be2;
+    }
+
+    form {
+      background: rgba(25, 10, 40, 0.95);
+      padding: 25px;
+      border-radius: 12px;
+      box-shadow: 0 0 12px #7d3ae8;
+      width: 100%;
+      max-width: 420px;
+    }
+
+    label {
+      font-size: 1.1rem;
+      display: block;
+      margin-bottom: 10px;
+    }
+
+    input {
+      width: 100%;
+      padding: 12px;
+      font-size: 16px;
+      border-radius: 8px;
+      border: none;
+      outline: none;
+      background: #1c0f2a;
+      color: white;
+      margin-bottom: 15px;
+    }
+
+    button {
+      width: 100%;
+      padding: 12px;
+      background: linear-gradient(to right, #8a2be2, #d36dfd);
+      color: white;
+      font-weight: bold;
+      font-size: 16px;
+      border: none;
+      border-radius: 8px;
+      cursor: pointer;
+      transition: 0.3s;
+    }
+
+    button:hover {
+      background: linear-gradient(to right, #a958f0, #df92ff);
+    }
+
+    footer {
+      margin-top: 40px;
+      font-size: 0.9rem;
+      color: #aaa;
+      text-align: center;
+    }
+  </style>
 </head>
 <body>
-  <div class="container">
-    <img src="https://i.imgur.com/zJ0lXDT.png" alt="Rahl Logo" class="logo" />
-    <h1>⚡ Royal Session Generator</h1>
-    <p>Enter your WhatsApp number to link with <strong>Lord Rahl Bot</strong></p>
+  <img src="/assets/rahl-lion-logo.png" alt="Royal Black Lion">
+  <h1>🦁 Get Your Royal Session</h1>
 
-    <form id="sessionForm">
-      <input type="text" id="number" placeholder="📱 +254790123456" required />
-      <button type="submit">👑 Get Royal Session</button>
-    </form>
+  <form method="POST" action="/start-session">
+    <label for="number">📱 Enter WhatsApp Number with country code:</label>
+    <input type="text" name="number" id="number" placeholder="e.g. 254712345678" required />
+    <button type="submit">👑 Generate Royal Session</button>
+  </form>
 
-    <div id="qr" class="qr-box"></div>
-
-    <p class="footer">👑 Lord Rahl — Power through knowledge. Control through code.</p>
-  </div>
-
-  <script src="script.js"></script>
+  <footer>
+    🔐 Powered by Lord Rahl • Royal Intelligence System • 2025
+  </footer>
 </body>
 </html>
