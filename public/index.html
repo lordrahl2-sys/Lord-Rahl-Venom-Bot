@@ -1,94 +1,126 @@
-<!-- royal-panel/index.html --><!DOCTYPE html><html lang="en">
+<!DOCTYPE html>
+<html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>👑 Get Your Royal Session</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>👑 Link to Royal WhatsApp</title>
   <style>
-    body {
+    * {
       margin: 0;
-      background: #0a001f;
-      color: #ffffff;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
       font-family: 'Segoe UI', sans-serif;
+      background: linear-gradient(135deg, #0a001f, #1f0030);
+      color: #fff;
       display: flex;
-      flex-direction: column;
-      align-items: center;
       justify-content: center;
+      align-items: center;
       height: 100vh;
+      overflow: hidden;
     }
-    h1 {
-      color: #b78aff;
-      font-size: 2rem;
-      text-align: center;
-      margin-bottom: 20px;
-    }
+
     .panel {
-      background: #130028;
+      background: #140024;
       border: 2px solid #8a2be2;
-      padding: 2rem;
-      border-radius: 15px;
-      box-shadow: 0 0 20px #8a2be2;
-      width: 90%;
+      box-shadow: 0 0 25px #8a2be2;
+      border-radius: 20px;
+      padding: 30px 25px;
       max-width: 400px;
+      width: 90%;
+      text-align: center;
     }
+
+    h1 {
+      font-size: 1.8rem;
+      color: #c29eff;
+      margin-bottom: 1rem;
+    }
+
     input[type="text"] {
       width: 100%;
       padding: 12px;
       border: 2px solid #8a2be2;
-      border-radius: 10px;
-      background: #0a001f;
-      color: #fff;
-      font-size: 16px;
+      background: #1b002f;
+      color: white;
+      border-radius: 12px;
+      font-size: 1rem;
+      margin-bottom: 1rem;
     }
+
     button {
-      margin-top: 15px;
+      background: #8a2be2;
+      border: none;
       padding: 12px;
       width: 100%;
-      border: none;
-      border-radius: 10px;
-      background-color: #8a2be2;
-      color: white;
+      border-radius: 12px;
       font-weight: bold;
+      color: white;
       font-size: 1rem;
+      box-shadow: 0 0 15px #8a2be2;
       cursor: pointer;
-      box-shadow: 0 0 10px #8a2be2;
+      transition: all 0.3s ease;
     }
+
     button:hover {
-      background-color: #a34bee;
+      background: #a94fff;
     }
+
     #qrBox {
-      margin-top: 25px;
-      text-align: center;
+      margin-top: 20px;
     }
+
     img.qr {
       width: 200px;
-      margin-top: 10px;
+      border-radius: 10px;
+      margin-top: 15px;
+      box-shadow: 0 0 20px #8a2be2;
+    }
+
+    .footer {
+      margin-top: 1.5rem;
+      font-size: 0.9rem;
+      color: #a98eff;
     }
   </style>
 </head>
 <body>
   <div class="panel">
-    <h1>👑 Link to Royal WhatsApp</h1>
-    <input type="text" id="phone" placeholder="Enter your WhatsApp number" />
-    <button onclick="getSession()">Get Royal Code</button>
+    <h1>🔗 Get Your Royal Session</h1>
+    <input type="text" id="phone" placeholder="📱 Enter WhatsApp Number" />
+    <button onclick="getSession()">👑 Generate Code</button>
     <div id="qrBox"></div>
-  </div>  <script>
+    <div class="footer">Powered by Rahl Intelligence</div>
+  </div>
+
+  <script>
     async function getSession() {
       const phone = document.getElementById('phone').value;
-      if (!phone) return alert('📱 Please enter your WhatsApp number.');
+      if (!phone) {
+        alert("⚠️ Please enter your WhatsApp number first.");
+        return;
+      }
 
-      document.getElementById('qrBox').innerHTML = '<p>⏳ Generating royal session...</p>';
+      document.getElementById('qrBox').innerHTML = '<p>⏳ Generating your royal code...</p>';
 
-      const res = await fetch('/session?phone=' + phone);
-      const data = await res.json();
+      try {
+        const res = await fetch('/session?phone=' + phone);
+        const data = await res.json();
 
-      if (data.qr) {
-        document.getElementById('qrBox').innerHTML = `
-          <p>🔒 Scan this code to link your WhatsApp:</p>
-          <img class="qr" src="${data.qr}" alt="QR Code" />
-        `;
-      } else {
-        document.getElementById('qrBox').innerHTML = `<p>❌ Failed to generate QR. Try again later.</p>`;
+        if (data.qr) {
+          document.getElementById('qrBox').innerHTML = `
+            <p>📸 Scan this Royal QR to link WhatsApp:</p>
+            <img class="qr" src="${data.qr}" alt="Royal QR Code" />
+          `;
+        } else {
+          document.getElementById('qrBox').innerHTML = `<p>❌ Failed to generate QR. Try again later.</p>`;
+        }
+      } catch (err) {
+        document.getElementById('qrBox').innerHTML = `<p>❌ Server error. QR not available.</p>`;
       }
     }
-  </script></body>
+  </script>
+</body>
 </html>
