@@ -31,6 +31,16 @@
       max-width: 400px;
       width: 90%;
       text-align: center;
+      position: relative;
+    }
+
+    .logo {
+      width: 120px;
+      height: auto;
+      margin: 0 auto 20px;
+      display: block;
+      border-radius: 50%;
+      box-shadow: 0 0 15px #8a2be2;
     }
 
     h1 {
@@ -88,6 +98,9 @@
 </head>
 <body>
   <div class="panel">
+    <!-- 🦁 Royal Logo -->
+    <img src="assets/rahl-lion-logo.png" alt="Rahl Lion Logo" class="logo" />
+
     <h1>🔗 Get Your Royal Session</h1>
     <input type="text" id="phone" placeholder="📱 Enter WhatsApp Number" />
     <button onclick="getSession()">👑 Generate Code</button>
