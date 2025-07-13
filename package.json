@@ -1,13 +1,14 @@
 {
-  "name": "venom-bot",
+  "name": "royal-session-server",
   "version": "1.0.0",
-  "description": "WhatsApp bot powered by Venom",
-  "main": "index.js",
+  "description": "Royal session starter using WPPConnect",
+  "main": "server.js",
   "scripts": {
-    "start": "node index.js"
+    "start": "node server.js"
   },
   "dependencies": {
-    "venom-bot": "^5.0.0",
-    "dotenv": "^16.0.0"
+    "axios": "^1.6.0",
+    "cors": "^2.8.5",
+    "express": "^4.18.2"
   }
 }
