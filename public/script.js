@@ -1,11 +1,12 @@
-document.getElementById("sessionForm").addEventListener("submit", async (e) => {
-  e.preventDefault();
-  const number = document.getElementById("number").value;
-  const res = await fetch("/start-session", {
-    method: "POST",
-    headers: { "Content-Type": "application/json" },
-    body: JSON.stringify({ number }),
-  });
-  const data = await res.json();
-  document.getElementById("qr").innerHTML = `<img src="${data.qr}" width="250"/>`;
+document.getElementById('getSessionBtn').addEventListener('click', async () => {
+  const responseText = document.getElementById('responseText');
+  responseText.textContent = "🕒 Creating your Royal Session...";
+
+  try {
+    const res = await fetch('/pair');
+    const text = await res.text();
+    responseText.textContent = text;
+  } catch (error) {
+    responseText.textContent = "❌ Error connecting to the server.";
+  }
 });
