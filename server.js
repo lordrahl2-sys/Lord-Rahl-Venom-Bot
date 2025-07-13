@@ -1,35 +1,34 @@
 const express = require('express');
-const venom = require('venom-bot');
 const cors = require('cors');
-const path = require('path');
+const axios = require('axios');
 
 const app = express();
+const PORT = process.env.PORT || 3000;
+const WPP_SERVER = 'https://wppconnect-server-render-url.com'; // Replace with real WPP server
+
 app.use(cors());
 app.use(express.json());
-app.use(express.static('public'));
 
+// Royal Endpoint for creating session
 app.post('/session', async (req, res) => {
-  const number = req.body.number.replace(/\D/g, '');
-  const sessionName = `rahl-session-${number}`;
+  const { phone } = req.body;
+  if (!phone) return res.status(400).json({ error: 'Phone number required' });
 
-  venom.create(
-    sessionName,
-    (base64Qrimg) => {
-      res.json({ qr: base64Qrimg });
-    },
-    undefined,
-    {
-      multidevice: true,
-      folderNameToken: 'tokens',
-      mkdirFolderToken: '',
+  try {
+    const response = await axios.post(`${WPP_SERVER}/api/session/add`, {
+      session: phone,
+    });
+
+    if (response.data.status === 'success') {
+      return res.status(200).json({ message: 'Session started. Check WhatsApp for confirmation.' });
+    } else {
+      return res.status(500).json({ error: response.data.message || 'Failed to start session' });
     }
-  ).then(client => {
-    console.log(`🤖 Royal Session ${sessionName} is ready!`);
-  }).catch(err => {
-    console.error(err);
-    res.status(500).json({ error: 'Session failed' });
-  });
+  } catch (err) {
+    return res.status(500).json({ error: err.message });
+  }
 });
 
-const PORT = process.env.PORT || 5000;
-app.listen(PORT, () => console.log(`👑 Rahl Panel running on port ${PORT}`));
+app.listen(PORT, () => {
+  console.log(`🟣 Royal Session Server running on http://localhost:${PORT}`);
+});
