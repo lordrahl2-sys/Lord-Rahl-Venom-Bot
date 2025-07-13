@@ -3,75 +3,103 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Lord Rahl | Royal Session</title>
+  <title>RAHL ROYAL SESSION</title>
   <style>
     body {
-      margin: 0;
-      font-family: 'Poppins', sans-serif;
-      background: linear-gradient(to bottom, #000000, #1a1a1a);
-      color: #f1f1f1;
-      display: flex;
-      flex-direction: column;
-      justify-content: space-between;
-      align-items: center;
-      min-height: 100vh;
+      background: #000000;
+      color: #ffd700;
+      font-family: 'Segoe UI', sans-serif;
+      text-align: center;
+      padding: 2em;
     }
 
     h1 {
-      margin-top: 40px;
-      color: gold;
-      font-size: 2rem;
-      text-align: center;
-      text-shadow: 0 0 5px gold;
+      font-size: 2.2em;
+      color: #00ffee;
+      text-shadow: 0 0 8px #5e17eb;
+      margin-bottom: 1em;
     }
 
-    .button {
-      background-color: gold;
-      color: black;
-      padding: 15px 30px;
-      border-radius: 40px;
-      font-size: 1.2rem;
-      font-weight: bold;
-      text-decoration: none;
-      margin-top: 30px;
-      box-shadow: 0 4px 12px rgba(255, 215, 0, 0.3);
-      transition: all 0.3s ease-in-out;
+    .session-banner {
+      background: #111111;
+      border: 2px solid #5e17eb;
+      border-radius: 15px;
+      padding: 2em;
+      margin: 1.5em 0;
+      color: #f4f4f4;
+      font-family: 'monospace';
+      font-size: 1.1em;
+      line-height: 1.8;
     }
 
-    .button:hover {
-      background-color: #fff200;
-      transform: scale(1.05);
+    .royal-btn {
+      background: #5e17eb;
+      color: white;
+      border: none;
+      padding: 14px 32px;
+      font-size: 1.1em;
+      border-radius: 10px;
+      cursor: pointer;
+      box-shadow: 0 0 10px #00ffee;
+      transition: 0.3s ease;
+      margin-top: 1em;
     }
 
-    footer {
-      text-align: center;
-      padding: 20px;
+    .royal-btn:hover {
+      background: #3f0cb1;
+      box-shadow: 0 0 16px #00ffee;
     }
 
-    .footer-img {
-      width: 120px;
-      margin-bottom: 10px;
-      opacity: 0.85;
+    .bottom-img {
+      margin-top: 3em;
+      width: 220px;
+      border-radius: 12px;
+      box-shadow: 0 0 12px #5e17eb;
     }
 
-    .footer-text {
-      font-size: 14px;
-      color: #888;
+    .footer {
+      margin-top: 2em;
+      font-size: 0.9em;
+      color: #888888;
+    }
+
+    @media (max-width: 600px) {
+      h1 {
+        font-size: 1.6em;
+      }
+
+      .session-banner {
+        font-size: 1em;
+      }
+
+      .royal-btn {
+        font-size: 1em;
+        padding: 12px 24px;
+      }
     }
   </style>
 </head>
 <body>
 
-  <h1>👑 Get Your Royal Session</h1>
+  <h1>👑 RIRD RAHL ՏᎬՏՏᏆϴΝ 👑</h1>
 
-  <a href="https://your-session-link.com" class="button">
-    🎯 Get Royal Session Now
-  </a>
+  <div class="session-banner">
+    🅀🅁 🄲🄾🄳🄴 <br/>
+    🄿🄰🄸🅁 🄲🄾🄳🄴 <br/>
+    🄵🄾🅁🄺 🅁🄴🄿🄾 <br/>
+    🅆🄷🄰🅃🅂🄰🄿🄿 <br/>
+    🄲🄾🄽🅃🄰🄲🅃 🄾🅆🄽🄴🅁 <br/>
+  </div>
 
-  <footer>
-    <img src="https://i.imgur.com/NuYHPDL.png" class="footer-img" alt="Lord Rahl Logo" />
-    <div class="footer-text">© 2025 Lord Rahl Systems</div>
-  </footer>
+  <button class="royal-btn" onclick="alert('🚧 Royal QR Code Panel Coming Soon!')">
+    🚀 Get Your Royal Session
+  </button>
+
+  <img class="bottom-img" src="https://i.imgur.com/dBaSKWF.gif" alt="RAHL Banner"/>
+
+  <div class="footer">
+    LORD RAHL © 2025 – Powered by Royal Intelligence
+  </div>
 
 </body>
 </html>
