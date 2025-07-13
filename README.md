@@ -1,4 +1,4 @@
-<!-- 👑 Royal Banner -->
+[![Get Royal Session](https://img.shields.io/badge/Get%20Royal%20Session-🟣%20Click%20Here-blueviolet?style=for-the-badge)](https://your-hosted-link.com)<!-- 👑 Royal Banner -->
 <p align="center">
   <img src="https://raw.githubusercontent.com/lordrahl2-sys/Lord-Rahl-Venom-Bot/main/assets/rahl-lion-banner.png" width="100%" alt="Lord Rahl Banner"/>
 </p>
