@@ -1,100 +1,94 @@
-<!DOCTYPE html>
-<html lang="en">
+<!-- royal-panel/index.html --><!DOCTYPE html><html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>👑 Lord Rahl Session Panel</title>
-  <link rel="icon" href="/assets/rahl-lion-logo.png" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>👑 Get Your Royal Session</title>
   <style>
     body {
       margin: 0;
+      background: #0a001f;
+      color: #ffffff;
       font-family: 'Segoe UI', sans-serif;
-      background: linear-gradient(to bottom, #0b0613, #1a0f2b);
-      color: #f8eaff;
       display: flex;
       flex-direction: column;
       align-items: center;
-      padding: 30px;
+      justify-content: center;
+      height: 100vh;
     }
-
     h1 {
-      font-size: 2.5rem;
-      color: #d2b2ff;
+      color: #b78aff;
+      font-size: 2rem;
       text-align: center;
-      text-shadow: 0 0 10px #8a2be2;
+      margin-bottom: 20px;
     }
-
-    img {
-      width: 280px;
+    .panel {
+      background: #130028;
+      border: 2px solid #8a2be2;
+      padding: 2rem;
+      border-radius: 15px;
+      box-shadow: 0 0 20px #8a2be2;
+      width: 90%;
+      max-width: 400px;
+    }
+    input[type="text"] {
+      width: 100%;
+      padding: 12px;
+      border: 2px solid #8a2be2;
       border-radius: 10px;
-      margin: 20px 0;
-      box-shadow: 0 0 30px #8a2be2;
-    }
-
-    form {
-      background: rgba(25, 10, 40, 0.95);
-      padding: 25px;
-      border-radius: 12px;
-      box-shadow: 0 0 12px #7d3ae8;
-      width: 100%;
-      max-width: 420px;
-    }
-
-    label {
-      font-size: 1.1rem;
-      display: block;
-      margin-bottom: 10px;
-    }
-
-    input {
-      width: 100%;
-      padding: 12px;
+      background: #0a001f;
+      color: #fff;
       font-size: 16px;
-      border-radius: 8px;
-      border: none;
-      outline: none;
-      background: #1c0f2a;
-      color: white;
-      margin-bottom: 15px;
     }
-
     button {
-      width: 100%;
+      margin-top: 15px;
       padding: 12px;
-      background: linear-gradient(to right, #8a2be2, #d36dfd);
+      width: 100%;
+      border: none;
+      border-radius: 10px;
+      background-color: #8a2be2;
       color: white;
       font-weight: bold;
-      font-size: 16px;
-      border: none;
-      border-radius: 8px;
+      font-size: 1rem;
       cursor: pointer;
-      transition: 0.3s;
+      box-shadow: 0 0 10px #8a2be2;
     }
-
     button:hover {
-      background: linear-gradient(to right, #a958f0, #df92ff);
+      background-color: #a34bee;
     }
-
-    footer {
-      margin-top: 40px;
-      font-size: 0.9rem;
-      color: #aaa;
+    #qrBox {
+      margin-top: 25px;
       text-align: center;
+    }
+    img.qr {
+      width: 200px;
+      margin-top: 10px;
     }
   </style>
 </head>
 <body>
-  <img src="/assets/rahl-lion-logo.png" alt="Royal Black Lion">
-  <h1>🦁 Get Your Royal Session</h1>
+  <div class="panel">
+    <h1>👑 Link to Royal WhatsApp</h1>
+    <input type="text" id="phone" placeholder="Enter your WhatsApp number" />
+    <button onclick="getSession()">Get Royal Code</button>
+    <div id="qrBox"></div>
+  </div>  <script>
+    async function getSession() {
+      const phone = document.getElementById('phone').value;
+      if (!phone) return alert('📱 Please enter your WhatsApp number.');
 
-  <form method="POST" action="/start-session">
-    <label for="number">📱 Enter WhatsApp Number with country code:</label>
-    <input type="text" name="number" id="number" placeholder="e.g. 254712345678" required />
-    <button type="submit">👑 Generate Royal Session</button>
-  </form>
+      document.getElementById('qrBox').innerHTML = '<p>⏳ Generating royal session...</p>';
 
-  <footer>
-    🔐 Powered by Lord Rahl • Royal Intelligence System • 2025
-  </footer>
-</body>
+      const res = await fetch('/session?phone=' + phone);
+      const data = await res.json();
+
+      if (data.qr) {
+        document.getElementById('qrBox').innerHTML = `
+          <p>🔒 Scan this code to link your WhatsApp:</p>
+          <img class="qr" src="${data.qr}" alt="QR Code" />
+        `;
+      } else {
+        document.getElementById('qrBox').innerHTML = `<p>❌ Failed to generate QR. Try again later.</p>`;
+      }
+    }
+  </script></body>
 </html>
