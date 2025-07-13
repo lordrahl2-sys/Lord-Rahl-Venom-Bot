@@ -11,7 +11,7 @@
 
 ## 🧠 About Lord Rahl Venom Bot
 
-Lord Rahl is a powerful, royal-themed WhatsApp Multi-Device Bot built with **Venom-Bot**, designed to handle commands, group management, stickers, AI, auto-response, anti-delete, and more with elegance.
+Lord Rahl is a powerful,we power through knowledge.Control through code 
 
 ---
 
