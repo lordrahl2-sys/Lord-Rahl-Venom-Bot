@@ -1,30 +1,27 @@
-<!-- Glowing Header -->
+<!-- Royal Lion Banner -->
 <p align="center">
-  <img src="https://i.imgur.com/dBaSKWF.gif" width="100%" height="40px" />
+  <img src="https://raw.githubusercontent.com/lordrahl2-sys/Lord-Rahl-Venom-Bot/main/assets/rahl-lion-banner.png" width="100%" alt="Lord Rahl Banner" />
 </p>
 
 <h1 align="center">
-  <img src="https://readme-typing-svg.herokuapp.com?font=Fira+Code&size=24&duration=4000&pause=1000&color=8A2BE2&center=true&vCenter=true&width=600&lines=👑+Lord+Rahl+Venom+Bot+Activated!;Royal+Multi-Device+WhatsApp+Bot;Powered+by+Venom+and+Rahl+Intelligence+⚡" alt="Typing SVG" />
+  <img src="https://readme-typing-svg.herokuapp.com?font=Fira+Code&size=22&duration=4000&pause=1000&color=8A2BE2&center=true&vCenter=true&width=600&lines=Lord+Rahl+Venom+Bot;Power+through+knowledge.;Control+through+code.">
 </h1>
 
 ---
 
-## 🧠 About Lord Rahl Venom Bot
+## 👑 About Lord Rahl Bot
 
-Lord Rahl is a powerful,we power through knowledge.Control through code 
+**Lord Rahl Venom Bot** is a multi-device WhatsApp bot powered by **Venom-Bot**, styled with royal command, intelligent responses, group tools, AI support, and a rich interface.
 
 ---
 
-## 🚀 Deploy Options
+## ⚙️ Deployment
 
-### 🔧 Render / Railway / Firebase / Local
-Use any Node.js compatible platform to deploy.
+Choose any platform (Railway, Render, Firebase, etc):
 
-Example with Render:
-- Fork this repo
-- Connect to [https://render.com](https://render.com)
-- Set environment variables (like `OWNER_NUMBER`)
-- Click **Deploy**
+- 🔧 Fork this repo
+- 🔑 Setup Environment Variables (`OWNER_NUMBER`, etc.)
+- 🚀 Deploy directly via your platform of choice
 
 ---
 
@@ -38,33 +35,34 @@ Example with Render:
 
 ---
 
-## 🖼️ Preview
+## 🖼️ Panel Preview
 
 <p align="center">
-  <img src="https://i.imgur.com/zJ0lXDT.png" width="450px" alt="Rahl Session Panel Preview" />
+  <img src="https://raw.githubusercontent.com/lordrahl2-sys/Lord-Rahl-Venom-Bot/main/assets/rahl-lion-banner.png" width="500px" alt="Panel Preview" />
 </p>
 
 ---
 
-## 📂 Features
+## 🧠 Features
 
-- 🧠 AI Chat with `.ai`
-- 👋 Welcome & Goodbye Messages
-- 🛡️ Anti-delete Revealer
-- 👥 Group Management (`.tagall`, `.kick`, `.promote`, etc)
-- 🎞️ Media Tools (YouTube, stickers, etc)
-- 💀 Fun Commands
-- 🔧 Custom Commands
-- ✨ Stylish royal-themed responses
+- 🤖 `.ai`, `.gpt` — Chat with intelligent AI
+- 📌 `.menu`, `.alive` — Show commands & bot status
+- 🛡️ Anti-delete Revealer — Expose deleted messages
+- 💬 Welcome / Goodbye Messages
+- 👥 Group Tools — `.tagall`, `.kick`, `.promote`, `.demote`, `.lockgc`, `.unlockgc`
+- 🎥 Media Downloader — YouTube audio/video, stickers, etc.
+- 😂 Fun Commands — jokes, pickup lines, emotions
+- 🧙 Owner Controls — restart, block/unblock, fullpp, etc.
 
 ---
 
-## 👑 Owner Info
+## 🔐 Owner Info
 
 - **Name:** Lord Rahl  
-- **Platform:** Venom WhatsApp Multi-Device  
-- **Mode:** Public  
 - **Prefix:** `.`  
+- **Platform:** WhatsApp Multi-Device  
+- **Language:** Node.js (Venom-Bot)  
+- **Mode:** Public  
 - **Version:** 1.0.0  
 
 ---
