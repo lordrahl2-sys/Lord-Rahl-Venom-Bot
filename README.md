@@ -1,21 +1,32 @@
-[![Get Royal Session](https://img.shields.io/badge/Get%20Royal%20Session-🟣%20Click%20Here-blueviolet?style=for-the-badge)](https://your-hosted-link.com)<!-- 👑 Royal Banner -->
+<!-- Royal Banner -->
 <p align="center">
-  <img src="https://raw.githubusercontent.com/lordrahl2-sys/Lord-Rahl-Venom-Bot/main/assets/rahl-lion-banner.png" width="100%" alt="Lord Rahl Banner"/>
+  <img src="https://raw.githubusercontent.com/lordrahl2-sys/Lord-Rahl-Venom-Bot/main/assets/rahl-lion-banner.png" width="400px" alt="Lord Rahl Royal Lion" />
 </p>
 
-<!-- 👑 Royal Action Buttons -->
+<h1 align="center">
+  <img src="https://readme-typing-svg.herokuapp.com?font=Fira+Code&size=24&duration=4000&pause=1000&color=8A2BE2&center=true&vCenter=true&width=600&lines=👑+Lord+Rahl+Venom+Bot;Power+Through+Knowledge.;Control+Through+Code.⚡" alt="Typing SVG" />
+</h1>
+
+---
+
 <p align="center">
-  <a href="https://your-royal-panel.com" target="_blank">
-    <img src="https://img.shields.io/badge/Get%20Royal%20Session-🟣%20Start-purple?style=for-the-badge&logo=whatsapp&logoColor=white" alt="Royal Session"/>
+  <a href="https://lord-rahl-venom-q1waphzj6-lordrahl2-sys-projects.vercel.app" target="_blank">
+    <img src="https://img.shields.io/badge/Get%20Royal%20Session-%F0%9F%92%AE%20Start%20Now-purple?style=for-the-badge&logo=whatsapp" />
   </a>
-  <br/><br/>
-  <a href="https://render.com/deploy" target="_blank">
-    <img src="https://img.shields.io/badge/Deploy%20on%20Render-⚙️%20Deploy-blueviolet?style=for-the-badge&logo=render&logoColor=white" alt="Render Deploy"/>
+  <br><br>
+  <a href="https://render.com" target="_blank">
+    <img src="https://img.shields.io/badge/Deploy%20on%20Render-royalblue?style=for-the-badge&logo=render" />
   </a>
-  <a href="https://railway.app/new" target="_blank">
-    <img src="https://img.shields.io/badge/Deploy%20on%20Railway-🚄%20Royal-blueviolet?style=for-the-badge&logo=railway&logoColor=white" alt="Railway Deploy"/>
+  <a href="https://railway.app" target="_blank">
+    <img src="https://img.shields.io/badge/Deploy%20on%20Railway-%F0%9F%9B%A0%20Now-8A2BE2?style=for-the-badge&logo=railway" />
   </a>
-  <a href="https://heroku.com/deploy" target="_blank">
-    <img src="https://img.shields.io/badge/Deploy%20on%20Heroku-🌀%20Cloud-blueviolet?style=for-the-badge&logo=heroku&logoColor=white" alt="Heroku Deploy"/>
+  <a href="https://heroku.com" target="_blank">
+    <img src="https://img.shields.io/badge/Deploy%20on%20Heroku-6C3483?style=for-the-badge&logo=heroku" />
   </a>
+</p>
+
+---
+
+<p align="center">
+  <img src="https://i.pinimg.com/originals/57/da/b1/57dab1f2f9ea349f837b3319bc4bbdf3.gif" width="300px" alt="Royal Footer" />
 </p>
