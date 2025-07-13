@@ -3,14 +3,8 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>👑 Link to Royal WhatsApp</title>
+  <title>👑 Royal WhatsApp Session</title>
   <style>
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-    }
-
     body {
       font-family: 'Segoe UI', sans-serif;
       background: linear-gradient(135deg, #0a001f, #1f0030);
@@ -20,6 +14,7 @@
       align-items: center;
       height: 100vh;
       overflow: hidden;
+      margin: 0;
     }
 
     .panel {
@@ -31,20 +26,17 @@
       max-width: 400px;
       width: 90%;
       text-align: center;
-      position: relative;
     }
 
-    .logo {
-      width: 120px;
-      height: auto;
-      margin: 0 auto 20px;
-      display: block;
+    img.lion {
+      width: 100px;
       border-radius: 50%;
-      box-shadow: 0 0 15px #8a2be2;
+      margin-bottom: 15px;
+      box-shadow: 0 0 12px #8a2be2;
     }
 
     h1 {
-      font-size: 1.8rem;
+      font-size: 1.6rem;
       color: #c29eff;
       margin-bottom: 1rem;
     }
@@ -78,15 +70,8 @@
       background: #a94fff;
     }
 
-    #qrBox {
+    #status {
       margin-top: 20px;
-    }
-
-    img.qr {
-      width: 200px;
-      border-radius: 10px;
-      margin-top: 15px;
-      box-shadow: 0 0 20px #8a2be2;
     }
 
     .footer {
@@ -98,40 +83,40 @@
 </head>
 <body>
   <div class="panel">
-    <!-- 🦁 Royal Logo -->
-    <img src="assets/rahl-lion-logo.png" alt="Rahl Lion Logo" class="logo" />
-
+    <img src="./assets/rahl-lion-logo.png" alt="Royal Lion" class="lion" />
     <h1>🔗 Get Your Royal Session</h1>
     <input type="text" id="phone" placeholder="📱 Enter WhatsApp Number" />
-    <button onclick="getSession()">👑 Generate Code</button>
-    <div id="qrBox"></div>
+    <button onclick="getRoyalSession()">👑 Generate Royal Code</button>
+    <div id="status"></div>
     <div class="footer">Powered by Rahl Intelligence</div>
   </div>
 
   <script>
-    async function getSession() {
-      const phone = document.getElementById('phone').value;
+    async function getRoyalSession() {
+      const phone = document.getElementById('phone').value.trim();
       if (!phone) {
-        alert("⚠️ Please enter your WhatsApp number first.");
+        alert("⚠️ Enter your WhatsApp number.");
         return;
       }
 
-      document.getElementById('qrBox').innerHTML = '<p>⏳ Generating your royal code...</p>';
+      document.getElementById('status').innerHTML = "⏳ Sending Royal Code...";
 
       try {
-        const res = await fetch('/session?phone=' + phone);
+        const res = await fetch('https://your-backend-url.com/session', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({ phone })
+        });
+
         const data = await res.json();
 
-        if (data.qr) {
-          document.getElementById('qrBox').innerHTML = `
-            <p>📸 Scan this Royal QR to link WhatsApp:</p>
-            <img class="qr" src="${data.qr}" alt="Royal QR Code" />
-          `;
+        if (data.message) {
+          document.getElementById('status').innerHTML = "✅ " + data.message;
         } else {
-          document.getElementById('qrBox').innerHTML = `<p>❌ Failed to generate QR. Try again later.</p>`;
+          document.getElementById('status').innerHTML = "❌ " + (data.error || "Unknown error");
         }
-      } catch (err) {
-        document.getElementById('qrBox').innerHTML = `<p>❌ Server error. QR not available.</p>`;
+      } catch (e) {
+        document.getElementById('status').innerHTML = "❌ Server error. Try again.";
       }
     }
   </script>
